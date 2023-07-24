@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7jPhij+vXQNlOLexvSzyZPmgd5yxJPmnK/jL/MbPtgx1u05PfbpNBvg0/BfebXTqbu5DmcttLhCVq62yaVXdgw==",
+  "dgSpecHash": "hknXir8C3idrCiBlahAknqxgquD80Gc1GSUBuhi70Yd1VtALlYaEyKvBRB6/C8/aREi9dA9U5YAK4aK7+k3bTg==",
   "success": true,
   "projectFilePath": "C:\\Dev\\MauiSandbox\\MauiSandbox\\MauiSandbox.csproj",
   "expectedPackageFiles": [
@@ -123,8 +123,8 @@
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maui.core.ref.ios\\6.0.553\\microsoft.maui.core.ref.ios.6.0.553.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.ios.ref\\16.4.60\\microsoft.ios.ref.16.4.60.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maui.controls.ref.ios\\6.0.553\\microsoft.maui.controls.ref.ios.6.0.553.nupkg.sha512",
+    "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.ios.runtime.ios-arm64\\16.4.60\\microsoft.ios.runtime.ios-arm64.16.4.60.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maui.essentials.runtime.ios\\6.0.553\\microsoft.maui.essentials.runtime.ios.6.0.553.nupkg.sha512",
-    "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.ios.runtime.iossimulator-x64\\16.4.60\\microsoft.ios.runtime.iossimulator-x64.16.4.60.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maui.core.runtime.ios\\6.0.553\\microsoft.maui.core.runtime.ios.6.0.553.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maui.controls.ref.maccatalyst\\6.0.553\\microsoft.maui.controls.ref.maccatalyst.6.0.553.nupkg.sha512",
     "C:\\Users\\brandan.naef\\.nuget\\packages\\microsoft.maccatalyst.runtime.maccatalyst-x64\\16.4.60\\microsoft.maccatalyst.runtime.maccatalyst-x64.16.4.60.nupkg.sha512",

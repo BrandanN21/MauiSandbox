@@ -6,9 +6,16 @@
     xmlns:local="clr-namespace:MauiSandbox"
     Shell.FlyoutBehavior="Disabled">
 
+
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    Title="Home"
+    ContentTemplate="{DataTemplate local:MainPage}"
+    Route="MainPage" />
+
+    <ShellContent
+    Title="New Page"
+    ContentTemplate="{DataTemplate local:NewPage1}"
+    Route="NewPage" />
+
 
 </Shell>

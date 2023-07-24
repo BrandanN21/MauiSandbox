@@ -16,7 +16,8 @@
                 HorizontalOptions="Center" />
 
             <Label
-                Text="Hello, World!"
+                Text="Hello, Everyone!"
+                TextColor="Red"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
@@ -34,6 +35,18 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+
+            <Button Text="Navigate to Page 1"
+                    Clicked="Button_Clicked"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="Navigate to Page 2"
+                    Clicked="Button_Clicked2"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="Check Internet"
+                    HorizontalOptions="Center"
+                    Clicked="Button_Clicked_1"/>
 
         </VerticalStackLayout>
     </ScrollView>
