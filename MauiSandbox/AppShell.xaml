@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
 
-    <ShellContent
+    <!--<ShellContent
     Title="Home"
     ContentTemplate="{DataTemplate local:MainPage}"
     Route="MainPage" />
@@ -15,7 +15,18 @@
     <ShellContent
     Title="New Page"
     ContentTemplate="{DataTemplate local:NewPage1}"
-    Route="NewPage" />
+    Route="NewPage" />-->
+
+    <TabBar>
+        <Tab Title="Home"
+            Icon="https://cdn-icons-png.flaticon.com/512/25/25694.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Activity"
+            Icon="https://cdn-icons-png.flaticon.com/512/1950/1950715.png">
+            <ShellContent ContentTemplate="{DataTemplate local:DetailsPage}" />
+        </Tab>
+    </TabBar>
 
 
 </Shell>

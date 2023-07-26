@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiSandbox.ViewModel"
+             xmlns:model="clr-namespace:MauiSandbox.Model"
+             x:DataType="viewmodel:BookDetailsViewModel"
+             x:Class="MauiSandbox.DetailsPage"
+             Title="DetailsPage">
+    <!--<VerticalStackLayout>
+        <Label
+            Text="{Binding Book.Title}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>-->
+
+
+    <Grid RowDefinitions="Auto, *">
+
+        <VerticalStackLayout Grid.Row="0"
+                             Padding="10"
+                             Spacing="10"
+                             >
+            <Label Style="{StaticResource LargeLabel}"
+                   Grid.Row="1"
+                   FontAttributes="Bold"
+                   Text="{Binding Book.Title}"
+                   Margin="0,0,0,8"/>
+
+            <Label Style="{StaticResource MediumLabel}" Text="Characters:" />
+        </VerticalStackLayout>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Book.Characters}"
+                        SelectionMode="None">
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Start"
+                             HorizontalOptions="Center"
+                             WidthRequest="200"
+                             HeightRequest="200"
+                             Spacing="10"
+                             Padding="10"
+                             >
+                    <Image Source="nodata.png"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               Aspect="AspectFill"/>
+                    <Label Style="{StaticResource MediumLabel}"
+                           HorizontalTextAlignment="Center"
+                           Margin="0,0,0,20"
+                           Text="Uh Oh! No characters were found, click the button below to add one!"/>
+                    <Button Text="Add Character"
+                            Command="{Binding AddNewCharacterCommand}"
+                            Style="{StaticResource ButtonOutline}"/>
+                </StackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Characters">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125" Style="{StaticResource CardView}">
+                            <Grid Padding="0" ColumnDefinitions="125,*">
+                                <Image Aspect="AspectFill" Source="{Binding Image}"
+                                           WidthRequest="125"
+                                           HeightRequest="125"/>
+                                <VerticalStackLayout
+                                        VerticalOptions="Start"
+                                        Grid.Column="1"
+                                        Padding="10">
+                                    <Label Style="{StaticResource LargeLabel}" Text="{Binding FirstName}" />
+                                    <Label Style="{StaticResource MediumLabel}" Text="{Binding LastName}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

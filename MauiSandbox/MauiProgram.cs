@@ -1,4 +1,8 @@
-﻿namespace MauiSandbox;
+﻿using MauiSandbox.Services;
+using MauiSandbox.ViewModel;
+//using MauiSandbox.View;
+
+namespace MauiSandbox;
 
 public static class MauiProgram
 {
@@ -13,6 +17,15 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-		return builder.Build();
+        builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
+
+        builder.Services.AddSingleton<BookService>();
+        builder.Services.AddSingleton<BooksViewModel>();
+        builder.Services.AddSingleton<MainPage>();
+
+        builder.Services.AddTransient<BookDetailsViewModel>();
+        builder.Services.AddTransient<DetailsPage>();
+
+        return builder.Build();
 	}
 }

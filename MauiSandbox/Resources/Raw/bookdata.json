@@ -1,0 +1,77 @@
+﻿[
+  {
+    "Title": "Harry Potter and the Philosopher's Stone",
+    "Description": "Harry Potter and the Philosopher’s Stone, published in 1997, is the first book in the Harry Potter series and introduces the character of Harry Potter.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855895.jpg",
+    "Characters": [
+      {
+        "FirstName": "Harry",
+        "LastName": "Potter",
+        "Image": "https://upload.wikimedia.org/wikipedia/en/d/d7/Harry_Potter_character_poster.jpg"
+      },
+      {
+        "FirstName": "Ginny",
+        "LastName": "Potter",
+        "Image": "https://upload.wikimedia.org/wikipedia/en/e/e7/Ginny_Weasley_poster.jpg"
+      },
+      {
+        "FirstName": "Sirius",
+        "LastName": "Black",
+        "Image": "https://upload.wikimedia.org/wikipedia/en/6/6b/Sirius_Black.jpeg"
+      },
+      {
+        "FirstName": "Rubeus",
+        "LastName": "Hagrid",
+        "Image": "https://upload.wikimedia.org/wikipedia/en/1/10/RubeusHagrid.jpg"
+      },
+      {
+        "FirstName": "Luna",
+        "LastName": "Lovegood",
+        "Image": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/LunaLovegood.jpeg/330px-LunaLovegood.jpeg"
+      }
+    ]
+  },
+  {
+    "Title": "Harry Potter and the Chamber of Secrets",
+    "Description": "Harry Potter and the Chamber of Secrets is the second book in the Harry Potter series, first published in 1998. The format follows that of the first book, the events taking place in Harry's second year at boarding school.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855909.jpg",
+    "Characters": null
+  },
+  {
+    "Title": "Harry Potter and the Prisoner of Azkaban",
+    "Description": "We start to learn much more about Harry's parents and what happened before he was left on the Dursleys' doorstep as a baby, a vital step in the feeling you get from the Harry Potter books that this is not just another boy magician who features in a book, but a person you're getting to know.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855917.jpg",
+    "Characters": null
+  },
+  {
+    "Title": "Harry Potter and the Goblet of Fire",
+    "Description": "By now, the three main characters, Harry, Ron and Hermione are aged 14 and romantic interests start playing a role in the stories. That said, it's not the main plotline, and the main draw of Harry Potter and the Goblet of Fire is a compelling wizarding tournament.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855682.jpg",
+    "Characters": null
+  },
+  {
+    "Title": "Harry Potter and the Order of Phoenix",
+    "Description": "At nearly 900 pages, it would end up being the longest book in the series, following the lives of the three friends, Harry, Hermione and Ron, as they experience their 5th year at Hogwarts.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855933.jpg",
+    "Characters": null
+  },
+  {
+    "Title": "Harry Potter and the Half-Blood Prince",
+    "Description": "There is not only a striking, unexpected plot twist to end the book but also the buildup to the seventh and final book in the series when everything will come together and fall into place.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_1408855941.jpg",
+    "Characters": null
+  },
+  {
+    "Title": "Harry Potter and the Deathly Hallows",
+    "Description": "More than 600 pages in length, Harry Potter and the Deathly Hallows is a pageturner. J.K. Rowling keeps a number of plotlines in the air, gradually tying everything together.",
+    "Author": "J.K. Rowling",
+    "Image": "https://fivebooks.com/app/uploads/books/BC_140885595X.jpg",
+    "Characters": null
+  }
+]
