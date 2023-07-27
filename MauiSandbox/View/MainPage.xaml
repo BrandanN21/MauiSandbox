@@ -23,39 +23,41 @@
         <RefreshView Grid.ColumnSpan="2"
                      Command="{Binding GetBooksCommand}"
                      IsRefreshing="{Binding IsRefreshing}">
-            <CollectionView
+            <Grid>
+                <CollectionView
                     ItemsSource="{Binding Books}"
-                    SelectionMode="None"
-                    >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Book">
-                        <Grid Padding="10">
-                            <Frame  Style="{StaticResource CardView}">
-                                <!-- this allows us to register a tap and bind to itself-->
-                                <Frame.GestureRecognizers>
-                                    <TapGestureRecognizer
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BooksViewModel}}, Path=GoToDetailsCommand}"
-                                        CommandParameter="{Binding .}"/>
-                                </Frame.GestureRecognizers>
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Book">
+                            <Grid Padding="10">
+                                <Frame  Style="{StaticResource CardView}">
+                                    <!-- this allows us to register a tap and bind to itself-->
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BooksViewModel}}, Path=GoToDetailsCommand}"
+                                            CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>
 
-                                <Grid Padding="0" ColumnDefinitions="125,*">
-                                    <Image Aspect="AspectFill"
-                                           Source="{Binding Image}"
-                                           WidthRequest="125"
-                                           />
-                                    <VerticalStackLayout
-                                         VerticalOptions="Center"
-                                         Grid.Column="1"
-                                         Padding="10">
-                                        <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}"/>
-                                        <Label Style="{StaticResource SmallLabel}" Text="{Binding Description}" />
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </Frame>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                    <Grid Padding="0" ColumnDefinitions="125,*">
+                                        <Image Aspect="AspectFill"
+                                               Source="{Binding Image}"
+                                               WidthRequest="125"
+                                               />
+                                        <VerticalStackLayout
+                                             VerticalOptions="Center"
+                                             Grid.Column="1"
+                                             Padding="10">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}"/>
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding Description}" />
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+
         </RefreshView>
 
             <!--<Button Text="Fetch Books"
