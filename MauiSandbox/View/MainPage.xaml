@@ -4,6 +4,8 @@
              xmlns:model="clr-namespace:MauiSandbox.Model"
              xmlns:viewmodel="clr-namespace:MauiSandbox.ViewModel"
              x:Class="MauiSandbox.MainPage"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             ios:Page.UseSafeArea="True"
              x:DataType="viewmodel:BooksViewModel"
              Title="Books">
 
@@ -14,16 +16,17 @@
 
     <Grid ColumnDefinitions="*,*"
           ColumnSpacing="5"
-          RowDefinitions="*, auto"
+          RowDefinitions="*,Auto"
           RowSpacing="15"
           Padding="20,25,20,15">
+
         <RefreshView Grid.ColumnSpan="2"
                      Command="{Binding GetBooksCommand}"
                      IsRefreshing="{Binding IsRefreshing}">
             <CollectionView
                     ItemsSource="{Binding Books}"
                     SelectionMode="None"
-                    Grid.ColumnSpan="2">
+                    >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Book">
                         <Grid Padding="10">
