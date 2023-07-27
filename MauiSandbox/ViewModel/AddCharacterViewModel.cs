@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace MauiSandbox.ViewModel
         public AddCharacterViewModel()
         {
             Characters = new ObservableCollection<string>();
-            Image = new Image();
+            myImageSource = string.Empty;
         }
 
         [ObservableProperty]
@@ -29,7 +30,11 @@ namespace MauiSandbox.ViewModel
         string text;
 
         [ObservableProperty]
-        Image image;
+        [NotifyPropertyChangedFor(nameof(Image))]
+        string myImageSource;
+
+        // this value is never getting set it keeps coming up as null
+        public string Image => MyImageSource;
 
         [RelayCommand]
         void Add()
@@ -43,10 +48,11 @@ namespace MauiSandbox.ViewModel
         }
 
         [RelayCommand]
-        async Task TakePhoto()
+        async Task<string> TakePhoto()
         {
             if (MediaPicker.Default.IsCaptureSupported)
             {
+
                 FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
 
                 if (photo != null)
@@ -59,15 +65,39 @@ namespace MauiSandbox.ViewModel
 
                     await sourceStream.CopyToAsync(localFileStream);
 
-                    Image = new Image
-                    {
-                        Source = ImageSource.FromFile(localFilePath)
-                    };
+                    MyImageSource = localFilePath;
 
-                    return;
+                    return MyImageSource;
                 }
             }
-            return;
+            return MyImageSource;
+        }
+
+
+        [RelayCommand]
+        async Task<string> UploadPhoto()
+        {
+            if (MediaPicker.Default.IsCaptureSupported)
+            {
+                FileResult photo = await MediaPicker.Default.PickPhotoAsync();
+
+                if (photo != null)
+                {
+                    // save the file into local storage
+                    string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+
+                    using Stream sourceStream = await photo.OpenReadAsync();
+                    using FileStream localFileStream = File.OpenWrite(localFilePath);
+
+                    await sourceStream.CopyToAsync(localFileStream);
+
+                    var imageSource = photo.FullPath.ToString();
+
+                    MyImageSource = imageSource;
+
+                }
+            }
+            return MyImageSource;
         }
     }
 }

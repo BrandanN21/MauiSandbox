@@ -14,28 +14,53 @@
                 Padding="15">
 
             <VerticalStackLayout>
-                <inputLayout:SfTextInputLayout Hint="Book Title">
+                <inputLayout:SfTextInputLayout Hint="Book Title" ContainerType="None" IsEnabled="False">
                     <Entry Placeholder="{Binding Book.Title}"
                        IsReadOnly="True"
                        Text="{Binding Book.Title}"/>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Name">
+
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                    <inputLayout:SfTextInputLayout Hint="Date" Grid.Column="0" Visual="Default" ContainerType="None" IsEnabled="False">
+                        <!-- can use Date={} to bind to specific date -->
+                        <DatePicker />
+                    </inputLayout:SfTextInputLayout>
+                    <inputLayout:SfTextInputLayout Hint="Time" Grid.Column="1" ContainerType="None" IsEnabled="False">
+                        <!-- can use Date={} to bind to specific date -->
+                        <TimePicker/>
+                    </inputLayout:SfTextInputLayout>
+                </Grid>
+
+                <inputLayout:SfTextInputLayout Hint="Name" ContainerType="None">
                     <Entry Placeholder="Name"
                    Text=""/>
                 </inputLayout:SfTextInputLayout>
-                <inputLayout:SfTextInputLayout Hint="Date">
-                    <!-- can use Date={} to bind to specific date -->
-                    <DatePicker/>
-                </inputLayout:SfTextInputLayout>
 
-                <Image Source="{Binding Image}"
-                       Aspect="AspectFill"
-                       WidthRequest="125"/>
+                <Label Style="{StaticResource MediumLabel}" Margin="0,10,0,0" Text="Photo:"/>
 
-                <Button Text="Add Photo"
+                <Image x:Name="myImageSource"
+                       Source="{Binding MyImageSource}"
+                       HorizontalOptions="Center"
+                       HeightRequest="150"/>
+
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="10">
+                    <Button Text="Take Photo"
                             Command="{Binding TakePhotoCommand}"
-                            Style="{StaticResource ButtonOutline}">
-                </Button>
+                            Style="{StaticResource ButtonOutline}"
+                            Margin="0,0,0,20"
+                            Grid.Column="0">
+                    </Button>
+                    <Button Text="Upload Photo"
+                            Command="{Binding UploadPhotoCommand}"
+                            Style="{StaticResource ButtonOutline}"
+                            Margin="0,0,0,20"
+                            Grid.Column="1">
+                    </Button>
+                </Grid>
+
+
+
             </VerticalStackLayout>
         </Border>
     </Grid>
