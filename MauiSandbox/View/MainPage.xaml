@@ -30,7 +30,7 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Book">
                             <Grid Padding="10">
-                                <Frame  Style="{StaticResource CardView}" MaximumHeightRequest="150">
+                                <Frame  Style="{StaticResource CardView}">
                                     <!-- this allows us to register a tap and bind to itself-->
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer

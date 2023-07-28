@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
@@ -39,7 +39,6 @@
                 <Label Style="{StaticResource MediumLabel}" Margin="0,10,0,0" Text="Photo:"/>
 
                 <Image x:Name="myImageSource"
-                       Margin="10"
                        Source="{Binding MyImageSource}"
                        HorizontalOptions="Center"
                        HeightRequest="150"/>
