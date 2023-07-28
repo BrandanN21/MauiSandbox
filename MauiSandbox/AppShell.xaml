@@ -20,13 +20,13 @@
 
     <TabBar>
         <Tab Title="Home"
-            Icon="https://cdn-icons-png.flaticon.com/512/25/25694.png">
+            Icon="home.png">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"
                           Title="MainPage"/>
         </Tab>
         <Tab Title="Activity"
-            Icon="https://cdn-icons-png.flaticon.com/512/1950/1950715.png">
+            Icon="list.png">
             <ShellContent ContentTemplate="{DataTemplate views:ActivityPage}"
                           Route="AddCharacterForm"
                           Title="AddCharacterForm"/>
