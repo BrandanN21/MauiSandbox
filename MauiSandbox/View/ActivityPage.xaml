@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiSandbox.View.ActivityPage"
+             xmlns:model="clr-namespace:MauiSandbox.Model"
+             xmlns:viewmodel="clr-namespace:MauiSandbox.ViewModel"
+             x:DataType="viewmodel:ActivityViewModel"
+             Title="Activity Page">
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh"
+                     Command="{Binding GetCharactersForDayCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Padding="20,25,20,15">
+        <RefreshView Grid.ColumnSpan="2"
+                     Command="{Binding GetCharactersForDayCommand}"
+                     IsRefreshing="{Binding IsRefreshing}">
+            <Grid RowDefinitions="Auto, *">
+
+                <VerticalStackLayout Grid.Row="0"
+                             Padding="10"
+                             Spacing="10">
+                    <Label
+                        Style="{StaticResource LargeLabel}"
+                        Text="Character Daily Activity"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Characters}"
+                        SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Characters">
+                            <Grid Padding="10">
+                                <Frame  Style="{StaticResource CardView}">
+                                    <!-- can add this in and on tap push to server?-->
+                                    <!--<Frame.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BooksViewModel}}, Path=GoToDetailsCommand}"
+                                                    CommandParameter="{Binding .}"/>
+                                    </Frame.GestureRecognizers>-->
+
+                                    <Grid Padding="10" ColumnSpacing="5" ColumnDefinitions="Auto,*,Auto,Auto">
+                                        <!--<Image Aspect="AspectFill"
+                                                       Source="{Binding Image}"
+                                                       WidthRequest="125"
+                                                       />-->
+                                        <Label Grid.Column="0"
+                                               Style="{StaticResource LargeLabel}"
+                                               Text="{Binding FirstName}"/>
+                                        <Label Grid.Column="1"
+                                               Style="{StaticResource LargeLabel}"
+                                               Text="{Binding LastName}"/>
+                                        <Label Grid.Column="2"
+                                               Style="{StaticResource LargeLabel}"
+                                               Text="| Status: "/>
+                                        <Image Grid.Column="3"
+                                               WidthRequest="25"
+                                               HeightRequest="25"
+                                               Source="{Binding Image}"/>
+                                        <!--<VerticalStackLayout
+                                                     VerticalOptions="Center"
+                                                     Grid.Column="1"
+                                                     Padding="10">
+                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding FirstName}"/>
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding LastName}" />
+                                        </VerticalStackLayout>-->
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </RefreshView>
+    </Grid>
+
+</ContentPage>
