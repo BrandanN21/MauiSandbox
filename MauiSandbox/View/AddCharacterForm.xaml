@@ -5,7 +5,7 @@
              x:Class="MauiSandbox.View.AddCharacterForm"
              xmlns:viewmodel="clr-namespace:MauiSandbox.ViewModel"
              x:DataType="viewmodel:AddCharacterViewModel"
-             Title="AddCharacterForm">
+             Title="Add Character Form">
 
     <Grid Padding="10"
           RowDefinitions="Auto, Auto, *">
@@ -33,7 +33,7 @@
 
                 <inputLayout:SfTextInputLayout Hint="Name" ContainerType="None">
                     <Entry Placeholder="Name"
-                   Text=""/>
+                   Text="{Binding Name}"/>
                 </inputLayout:SfTextInputLayout>
 
                 <Label Style="{StaticResource MediumLabel}" Margin="0,10,0,0" Text="Photo:"/>
@@ -58,6 +58,13 @@
                             Grid.Column="1">
                     </Button>
                 </Grid>
+
+                <Button Text="Submit Form"
+                            Command="{Binding AddCommand}"
+                            Style="{StaticResource ButtonOutline}"
+                            Margin="0,0,0,20"
+                            Grid.Column="1">
+                </Button>
 
 
 

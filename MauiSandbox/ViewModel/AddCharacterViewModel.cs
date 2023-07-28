@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Maui.Alerts;
 using MauiSandbox.Model;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Maui.Core;
+using MauiSandbox.View;
 
 namespace MauiSandbox.ViewModel
 {
@@ -16,18 +19,18 @@ namespace MauiSandbox.ViewModel
     {
         public AddCharacterViewModel()
         {
-            Characters = new ObservableCollection<string>();
+            Characters = new ObservableCollection<Characters>();
             myImageSource = string.Empty;
         }
 
         [ObservableProperty]
-        ObservableCollection<string> characters;
+        ObservableCollection<Characters> characters;
 
         [ObservableProperty]
         Book book;
 
         [ObservableProperty]
-        string text;
+        string name;
 
         [ObservableProperty]
         [NotifyPropertyChangedFor(nameof(Image))]
@@ -37,14 +40,48 @@ namespace MauiSandbox.ViewModel
         public string Image => MyImageSource;
 
         [RelayCommand]
-        void Add()
+        async Task Add()
         {
-            if (string.IsNullOrWhiteSpace(Text))
+            if (string.IsNullOrWhiteSpace(Name))
                 return;
 
-            Characters.Add(Text);
-            // add item
-            Text = string.Empty;
+            var newCharacter = new Characters
+            {
+                FirstName = Name,
+                LastName = Name,
+                Image = Image
+            };
+
+            Characters.Add(newCharacter);
+
+            await Shell.Current.GoToAsync($"///{nameof(MainPage)}", true);
+
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+            var snackbarOptions = new SnackbarOptions
+            {
+                BackgroundColor = Colors.LightGreen,
+                //TextColor = Colors.Green,
+                //ActionButtonTextColor = Colors.Yellow,
+                CornerRadius = new CornerRadius(10),
+                Font = Microsoft.Maui.Font.SystemFontOfSize(14),
+                ActionButtonFont = Microsoft.Maui.Font.SystemFontOfSize(14),
+                //CharacterSpacing = 0.5
+            };
+
+            string text = "Character Added";
+            //ToastDuration duration = ToastDuration.Short;
+            TimeSpan duration = TimeSpan.FromSeconds(3);
+            double fontSize = 14;
+            //Action action = async () => await Shell.Current.GoToAsync(nameof(ActivityPage));
+
+            var snackbar = Snackbar.Make(text, null, "View", duration, snackbarOptions);
+
+            await snackbar.Show(cancellationTokenSource.Token);
+
+            //var toast = Toast.Make(text, duration, fontSize);
+
+            //await toast.Show(cancellationTokenSource.Token);
         }
 
         [RelayCommand]

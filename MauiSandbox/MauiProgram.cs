@@ -1,4 +1,5 @@
-﻿using MauiSandbox.Services;
+﻿using CommunityToolkit.Maui;
+using MauiSandbox.Services;
 using MauiSandbox.View;
 using MauiSandbox.ViewModel;
 using Syncfusion.Maui.Core.Hosting;
@@ -13,7 +14,8 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
-			.ConfigureSyncfusionCore()
+            .UseMauiCommunityToolkit()
+            .ConfigureSyncfusionCore()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,13 +25,16 @@ public static class MauiProgram
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 
         builder.Services.AddSingleton<BookService>();
+
         builder.Services.AddSingleton<BooksViewModel>();
+        builder.Services.AddSingleton<AddCharacterViewModel>();
+        builder.Services.AddTransient<BookDetailsViewModel>();
+        builder.Services.AddSingleton<ActivityViewModel>();
+
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<AddCharacterForm>();
-        builder.Services.AddSingleton<AddCharacterViewModel>();
-
-        builder.Services.AddTransient<BookDetailsViewModel>();
         builder.Services.AddTransient<DetailsPage>();
+        builder.Services.AddTransient<ActivityPage>();
 
         return builder.Build();
 	}
