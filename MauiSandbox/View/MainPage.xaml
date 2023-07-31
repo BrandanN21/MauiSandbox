@@ -44,11 +44,11 @@
                                                WidthRequest="125"
                                                />
                                         <VerticalStackLayout
-                                             VerticalOptions="Center"
+                                             VerticalOptions="Start"
                                              Grid.Column="1"
                                              Padding="10">
-                                            <Label Style="{StaticResource LargeLabel}" Text="{Binding Title}"/>
-                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding Description}" />
+                                            <Label Style="{StaticResource MediumLabel}" Text="{Binding Title}"/>
+                                            <Label Style="{StaticResource MicroLabel}" Text="{Binding Description}" />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Frame>
@@ -60,13 +60,14 @@
 
         </RefreshView>
 
-            <!--<Button Text="Fetch Books"
-                Command="{Binding GetBooksCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="1"
-                Grid.Column="0"
-                Style="{StaticResource ButtonOutline}"
-                Margin="8"/>-->
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource Primary}"
+            VerticalOptions="Center" />
 
     </Grid>
 

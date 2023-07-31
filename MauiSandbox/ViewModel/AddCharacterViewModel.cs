@@ -82,6 +82,9 @@ namespace MauiSandbox.ViewModel
             //var toast = Toast.Make(text, duration, fontSize);
 
             //await toast.Show(cancellationTokenSource.Token);
+
+            Name = string.Empty;
+            MyImageSource = null;
         }
 
         [RelayCommand]
