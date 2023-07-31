@@ -25,6 +25,7 @@
                      IsRefreshing="{Binding IsRefreshing}">
             <Grid>
                 <CollectionView
+                    VerticalScrollBarVisibility="Never"
                     ItemsSource="{Binding Books}"
                     SelectionMode="None">
                     <CollectionView.ItemTemplate>
