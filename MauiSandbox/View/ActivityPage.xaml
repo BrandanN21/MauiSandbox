@@ -27,6 +27,12 @@
                         Text="Character Daily Activity"
                         VerticalOptions="Center"
                         HorizontalOptions="Center" />
+                    <Button Text="Sync Characters"
+
+                            Style="{StaticResource ButtonOutline}"
+                            Margin="0,10,0,0"
+                            Grid.Column="1">
+                    </Button>
                 </VerticalStackLayout>
 
                 <CollectionView Grid.Row="1"
@@ -77,6 +83,16 @@
                 </CollectionView>
             </Grid>
         </RefreshView>
+
+        <ActivityIndicator
+            Grid.RowSpan="2"
+            Grid.ColumnSpan="2"
+            HorizontalOptions="Fill"
+            IsRunning="{Binding IsBusy}"
+            IsVisible="{Binding IsBusy}"
+            Color="{StaticResource Primary}"
+            VerticalOptions="Center" />
+
     </Grid>
 
 </ContentPage>
