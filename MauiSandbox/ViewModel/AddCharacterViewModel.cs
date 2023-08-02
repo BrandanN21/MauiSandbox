@@ -75,7 +75,7 @@ namespace MauiSandbox.ViewModel
             double fontSize = 14;
             //Action action = async () => await Shell.Current.GoToAsync(nameof(ActivityPage));
 
-            var snackbar = Snackbar.Make(text, null, "View", duration, snackbarOptions);
+            var snackbar = Snackbar.Make(text, null, string.Empty, duration, snackbarOptions);
 
             await snackbar.Show(cancellationTokenSource.Token);
 

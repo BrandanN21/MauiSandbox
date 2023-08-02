@@ -49,16 +49,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Fonts\MaterialIcons-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Metropolis-Black.otf" />
+	  <None Remove="Resources\Fonts\Metropolis-Light.otf" />
+	  <None Remove="Resources\Fonts\Metropolis-Medium.otf" />
+	  <None Remove="Resources\Fonts\Metropolis-Regular.otf" />
 	  <None Remove="Resources\Images\nodata.png" />
 	  <None Remove="Resources\Raw\bookdata.json" />
 	  <None Remove="Resources\Raw\characterdata.json" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Resources\Styles\Colors2.xaml">
+	  <MauiXaml Update="Resources\Styles\Colors.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Resources\Styles\Styles2.xaml">
+	  <MauiXaml Update="Resources\Styles\Styles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\ActivityPage.xaml">

@@ -22,7 +22,6 @@ namespace MauiSandbox.ViewModel
         public BooksViewModel(IConnectivity connectivity, BookService bookService)
         {
             Title = "Books";
-
             _connectivity = connectivity;
             _bookService = bookService;
         }

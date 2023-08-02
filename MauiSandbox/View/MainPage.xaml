@@ -7,29 +7,47 @@
              xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              ios:Page.UseSafeArea="True"
              x:DataType="viewmodel:BooksViewModel"
-             Title="Books">
+             Title="">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Refresh"
                      Command="{Binding GetBooksCommand}"/>
     </ContentPage.ToolbarItems>
 
-    <Grid ColumnDefinitions="*,*"
-          ColumnSpacing="5"
-          RowDefinitions="*,Auto"
+    <Grid ColumnDefinitions="*"
+          ColumnSpacing="0"
+          RowDefinitions="Auto,*"
           RowSpacing="15"
-          Padding="20,25,20,15">
+          BackgroundColor="{StaticResource Primary}">
+        <Grid Grid.Row="0" HorizontalOptions="StartAndExpand">
+            <VerticalStackLayout>
+                <Label
+                    HorizontalOptions="Start"
+                    Text="Welcome to BookViewer!"
+                    Style="{StaticResource TitleTextStyle}"
+                    />
+                <Label
+                    Text="Here you can view all of your books, from the time you start reading to the end
+                    you will be able to see all of the books available to you!"
+                    Style="{StaticResource SubTitleTextStyle}"
+                    />
+            </VerticalStackLayout>
+
+        </Grid>
+
 
         <RefreshView Grid.ColumnSpan="2"
+                     Grid.Row="1"
                      Command="{Binding GetBooksCommand}"
                      IsRefreshing="{Binding IsRefreshing}">
             <Grid>
+                <BoxView Color="White" CornerRadius="18, 18, 0, 0"/>
                 <CollectionView
                     ItemsSource="{Binding Books}"
                     SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:Book">
-                            <Grid Padding="10">
+                            <Grid Padding="0,5" Margin="30,5">
                                 <Frame  Style="{StaticResource CardView}" HeightRequest="125">
                                     <!-- this allows us to register a tap and bind to itself-->
                                     <Frame.GestureRecognizers>
@@ -48,7 +66,7 @@
                                              Grid.Column="1"
                                              Padding="10">
                                             <Label Style="{StaticResource MediumLabel}" Text="{Binding Title}"/>
-                                            <Label Style="{StaticResource MicroLabel}" Text="{Binding Description}" />
+                                            <Label Style="{StaticResource SmallLabel}" Text="{Binding Description}" />
                                         </VerticalStackLayout>
                                     </Grid>
                                 </Frame>

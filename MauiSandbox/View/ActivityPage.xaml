@@ -13,75 +13,85 @@
                      Command="{Binding GetCharactersForDayCommand}"/>
     </ContentPage.ToolbarItems>
 
-    <Grid Padding="20,25,20,15">
-        <RefreshView Grid.ColumnSpan="2"
-                     Command="{Binding GetCharactersForDayCommand}"
-                     IsRefreshing="{Binding IsRefreshing}">
-            <Grid RowDefinitions="Auto, *">
-
-                <VerticalStackLayout Grid.Row="0"
-                             Padding="10"
-                             Spacing="10">
+    <Grid BackgroundColor="{StaticResource Primary}">
+        <Grid RowDefinitions="Auto, *" >
+            <VerticalStackLayout Grid.Row="0"
+                    Spacing="10" Padding="20,25,20,15">
                     <Label
-                        Style="{StaticResource LargeLabel}"
+                        Style="{StaticResource TitleTextStyle}"
                         Text="Character Daily Activity"
                         VerticalOptions="Center"
-                        HorizontalOptions="Center" />
-                    <Button Text="Sync Characters"
+                        Margin="0"
+                        HorizontalOptions="Start" />
+                    <Label
+                        Style="{StaticResource SubTitleTextStyle}"
 
+                        Text="View today's activity and the status for each character!"
+                        VerticalOptions="Center"
+                        Margin="0"
+                        HorizontalOptions="Start" />
+                    <Button Text="Sync Characters"
                             Style="{StaticResource ButtonOutline}"
-                            Margin="0,10,0,0"
+                            Margin="10,15"
                             Grid.Column="1">
                     </Button>
-                </VerticalStackLayout>
+            </VerticalStackLayout>
 
-                <CollectionView Grid.Row="1"
+            <RefreshView Grid.ColumnSpan="2"
+                     Command="{Binding GetCharactersForDayCommand}"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Grid.Row="1">
+                <Grid >
+                    <BoxView Color="White" CornerRadius="18, 18, 0, 0"/>
+                    <CollectionView Grid.Row="1"
                         ItemsSource="{Binding Characters}"
                         SelectionMode="None">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Characters">
-                            <Grid Padding="10">
-                                <Frame  Style="{StaticResource CardView}">
-                                    <!-- can add this in and on tap push to server?-->
-                                    <!--<Frame.GestureRecognizers>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:Characters">
+                                <Grid Padding="0,5" Margin="30,5" VerticalOptions="Center">
+                                    <Frame  Style="{StaticResource CardView}">
+                                        <!-- can add this in and on tap push to server?-->
+                                        <!--<Frame.GestureRecognizers>
                                         <TapGestureRecognizer
                                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BooksViewModel}}, Path=GoToDetailsCommand}"
                                                     CommandParameter="{Binding .}"/>
                                     </Frame.GestureRecognizers>-->
 
-                                    <Grid Padding="10" ColumnSpacing="5" ColumnDefinitions="Auto,*,Auto,Auto">
-                                        <!--<Image Aspect="AspectFill"
+                                        <Grid Padding="10" ColumnSpacing="5" ColumnDefinitions="Auto,*,Auto,Auto">
+                                            <!--<Image Aspect="AspectFill"
                                                        Source="{Binding Image}"
                                                        WidthRequest="125"
                                                        />-->
-                                        <Label Grid.Column="0"
+                                            <Label Grid.Column="0"
                                                Style="{StaticResource LargeLabel}"
                                                Text="{Binding FirstName}"/>
-                                        <Label Grid.Column="1"
+                                            <Label Grid.Column="1"
                                                Style="{StaticResource LargeLabel}"
                                                Text="{Binding LastName}"/>
-                                        <Label Grid.Column="2"
+                                            <Label Grid.Column="2"
                                                Style="{StaticResource LargeLabel}"
                                                Text="| Status: "/>
-                                        <Image Grid.Column="3"
+                                            <Image Grid.Column="3"
                                                WidthRequest="25"
                                                HeightRequest="25"
                                                Source="{Binding Image}"/>
-                                        <!--<VerticalStackLayout
+                                            <!--<VerticalStackLayout
                                                      VerticalOptions="Center"
                                                      Grid.Column="1"
                                                      Padding="10">
                                             <Label Style="{StaticResource LargeLabel}" Text="{Binding FirstName}"/>
                                             <Label Style="{StaticResource SmallLabel}" Text="{Binding LastName}" />
                                         </VerticalStackLayout>-->
-                                    </Grid>
-                                </Frame>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Grid>
-        </RefreshView>
+                                        </Grid>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </RefreshView>
+        </Grid>
+
 
         <ActivityIndicator
             Grid.RowSpan="2"

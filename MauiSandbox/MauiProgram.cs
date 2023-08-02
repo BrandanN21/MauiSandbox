@@ -19,8 +19,13 @@ public static class MauiProgram
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("Metropolis-Black.otf", "MetropolisBlack");
+                fonts.AddFont("Metropolis-Light.otf", "MetropolisLight");
+                fonts.AddFont("Metropolis-Medium.otf", "MetropolisMedium");
+                fonts.AddFont("Metropolis-Regular.otf", "MetropolisRegular");
+                fonts.AddFont("MaterialIcons-Regular.ttf", "MaterialIcons");
+            });
 
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
 

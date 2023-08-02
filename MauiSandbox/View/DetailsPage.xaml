@@ -8,27 +8,21 @@
              Title="DetailsPage">
 
     <Grid RowDefinitions="Auto, *"
-          Padding="20,25,20,15">
+          RowSpacing="15"
+          BackgroundColor="{StaticResource Primary}">
 
-        <Border StrokeThickness="0" StrokeShape="RoundRectangle 15">
+        <VerticalStackLayout Grid.Row="0">
+            <Label Style="{StaticResource TitleDetailsTextStyle}"
+                   HorizontalOptions="Start"
+                   Text="{Binding Book.Title}"/>
+            <Label Style="{StaticResource SubTitleTextStyle}"
+                   HorizontalOptions="Start"
+                   Text="Here's a list of characters found in this book you can scroll and view character details by clicking on one." />
+        </VerticalStackLayout>
 
-
-            <VerticalStackLayout Grid.Row="0"
-                             Padding="10"
-                             Spacing="10"
-                             >
-                <Label Style="{StaticResource LargeLabel}"
-                   Grid.Row="1"
-                   FontAttributes="Bold"
-                   Text="{Binding Book.Title}"
-                   Margin="0,0,0,8"/>
-
-                <Label Style="{StaticResource MediumLabel}" Text="Characters:" />
-            </VerticalStackLayout>
-        </Border>
-
-        <CollectionView Grid.Row="1"
-                        ItemsSource="{Binding Book.Characters}"
+        <Grid Grid.Row="1">
+            <BoxView Color="White" CornerRadius="18, 18, 0, 0"/>
+            <CollectionView ItemsSource="{Binding Book.Characters}"
                         SelectionMode="None">
             <CollectionView.EmptyView>
                 <StackLayout WidthRequest="200"
@@ -58,7 +52,7 @@
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Characters">
-                    <Grid Padding="10">
+                        <Grid Padding="0,5" Margin="30,5">
                         <Frame HeightRequest="125" Style="{StaticResource CardView}">
                             <Grid Padding="0" ColumnDefinitions="125,*">
                                 <Image Aspect="AspectFill" Source="{Binding Image}"
@@ -77,5 +71,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        </Grid>
     </Grid>
 </ContentPage>
