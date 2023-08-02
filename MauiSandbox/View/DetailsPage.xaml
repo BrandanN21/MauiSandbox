@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:MauiSandbox.ViewModel"
@@ -20,10 +20,12 @@
                    Text="Here's a list of characters found in this book you can scroll and view character details by clicking on one." />
         </VerticalStackLayout>
 
+
         <Grid Grid.Row="1">
             <BoxView Color="White" CornerRadius="18, 18, 0, 0"/>
             <CollectionView ItemsSource="{Binding Book.Characters}"
-                        SelectionMode="None">
+                        SelectionMode="None"
+                            VerticalScrollBarVisibility="Never">
             <CollectionView.EmptyView>
                 <StackLayout WidthRequest="200"
                              Margin="10"

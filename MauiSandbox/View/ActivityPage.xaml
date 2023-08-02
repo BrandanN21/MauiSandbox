@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiSandbox.View.ActivityPage"
@@ -44,6 +44,7 @@
                 <Grid >
                     <BoxView Color="White" CornerRadius="18, 18, 0, 0"/>
                     <CollectionView Grid.Row="1"
+                                    VerticalScrollBarVisibility="Never"
                         ItemsSource="{Binding Characters}"
                         SelectionMode="None">
                         <CollectionView.ItemTemplate>
